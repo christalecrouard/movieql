@@ -31,7 +31,7 @@ export const getMovie = async id => {
             movie_id: id
         }
     });
-    return  movie;
+    return movie;
 };
 
 export const getSuggestions = async id => {

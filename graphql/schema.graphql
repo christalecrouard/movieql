@@ -5,7 +5,43 @@ type Person{
     gender: String!
 }
 
+type Movie1{
+    id: Int!
+    name: String!
+    score: Int!
+}
+
+type Movie{
+    id: Int!
+    title: String!
+    rating: Float!
+    year: Int!
+    runtime: Int!
+    description_intro: String
+    genres: [String]
+    language: String!
+    medium_cover_image: String!
+}
+
+type Parental_Guide{
+    type: String!
+    parental_guide_text: String
+}
+
 type Query{
     people: [Person]!
     person(id: Int!): Person
+
+    movies1: [Movie1]!
+    movie1(id: Int!): Movie
+
+    movies(limit: Int,rating: Float): [Movie]!
+    movie(id: Int!): Movie
+    suggestions(id: Int!): [Movie]!
+    guides(id:Int!): [Parental_Guide]!
+}
+
+type Mutation{
+    addMovie(name: String!, score: Int!): Movie!
+    deleteMovie(id: Int!): Boolean!
 }
